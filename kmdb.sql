@@ -67,6 +67,10 @@
 --   URL for the finished "hw1" repository as the "Website URL" for the 
 --   Homework 1 assignment in Canvas
 
+
+-- Drop existing tables, so you'll start fresh each time this script is run.
+-- TODO!
+
 DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS actors;
 DROP TABLE IF EXISTS studios;
@@ -110,6 +114,10 @@ INSERT INTO movies (
 -- The Dark Knight        2008           PG-13  Warner Bros.
 -- The Dark Knight Rises  2012           PG-13  Warner Bros.
 
+
+-- Create new tables, according to your domain model
+-- TODO!
+
 CREATE TABLE actors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     actor_name TEXT,
@@ -122,6 +130,11 @@ CREATE TABLE studios (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT
 );
+
+
+-- Insert data into your database that reflects the sample data shown above
+-- Use hard-coded foreign key IDs when necessary
+-- TODO!
 
 INSERT INTO studios (
    "name"
@@ -195,39 +208,10 @@ INSERT INTO actors (
     3
 );
 
-
--- Top Cast
--- ========
-
--- Batman Begins          Christian Bale        Bruce Wayne
--- Batman Begins          Michael Caine         Alfred
--- Batman Begins          Liam Neeson           Ra's Al Ghul
--- Batman Begins          Katie Holmes          Rachel Dawes
--- Batman Begins          Gary Oldman           Commissioner Gordon
--- The Dark Knight        Christian Bale        Bruce Wayne
--- The Dark Knight        Heath Ledger          Joker
--- The Dark Knight        Aaron Eckhart         Harvey Dent
--- The Dark Knight        Michael Caine         Alfred
--- The Dark Knight        Maggie Gyllenhaal     Rachel Dawes
--- The Dark Knight Rises  Christian Bale        Bruce Wayne
--- The Dark Knight Rises  Gary Oldman           Commissioner Gordon
--- The Dark Knight Rises  Tom Hardy             Bane
--- The Dark Knight Rises  Joseph Gordon-Levitt  John Blake
--- The Dark Knight Rises  Anne Hathaway         Selina Kyle
-
 -- Turns column mode on but headers off
 .mode column
 .headers off
 
--- Drop existing tables, so you'll start fresh each time this script is run.
--- TODO!
-
--- Create new tables, according to your domain model
--- TODO!
-
--- Insert data into your database that reflects the sample data shown above
--- Use hard-coded foreign key IDs when necessary
--- TODO!
 
 -- Prints a header for the movies output
 .print "Movies"
