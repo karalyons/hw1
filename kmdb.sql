@@ -101,8 +101,6 @@ INSERT INTO movies (
     1
 );
 
--- SELECT * from movies;
-
 -- Successful sample output is as shown:
 
 -- Movies
@@ -197,7 +195,6 @@ INSERT INTO actors (
     3
 );
 
-SELECT * FROM actors;
 
 -- Top Cast
 -- ========
@@ -237,8 +234,24 @@ SELECT * FROM actors;
 .print "======"
 .print ""
 
+
 -- The SQL statement for the movies output
 -- TODO!
+-- Successful sample output is as shown:
+
+-- Movies
+-- ======
+
+-- Batman Begins          2005           PG-13  Warner Bros.
+-- The Dark Knight        2008           PG-13  Warner Bros.
+-- The Dark Knight Rises  2012           PG-13  Warner Bros.
+
+
+SELECT movies.title, movies.release_year, movies.MPAA_rating, studios.name
+FROM movies 
+    INNER JOIN studios ON movies.studio_id = studios.id
+ORDER BY movies.release_year;
+
 
 -- Prints a header for the cast output
 .print ""
@@ -249,3 +262,27 @@ SELECT * FROM actors;
 
 -- The SQL statement for the cast output
 -- TODO!
+
+SELECT movies.title, actors.actor_name, actors.character_name
+FROM movies 
+    INNER JOIN actors ON movies.id = actors.movie_id
+ORDER BY movies.title ASC;
+
+-- Top Cast
+-- ========
+
+-- Batman Begins          Christian Bale        Bruce Wayne
+-- Batman Begins          Michael Caine         Alfred
+-- Batman Begins          Liam Neeson           Ra's Al Ghul
+-- Batman Begins          Katie Holmes          Rachel Dawes
+-- Batman Begins          Gary Oldman           Commissioner Gordon
+-- The Dark Knight        Christian Bale        Bruce Wayne
+-- The Dark Knight        Heath Ledger          Joker
+-- The Dark Knight        Aaron Eckhart         Harvey Dent
+-- The Dark Knight        Michael Caine         Alfred
+-- The Dark Knight        Maggie Gyllenhaal     Rachel Dawes
+-- The Dark Knight Rises  Christian Bale        Bruce Wayne
+-- The Dark Knight Rises  Gary Oldman           Commissioner Gordon
+-- The Dark Knight Rises  Tom Hardy             Bane
+-- The Dark Knight Rises  Joseph Gordon-Levitt  John Blake
+-- The Dark Knight Rises  Anne Hathaway         Selina Kyle
