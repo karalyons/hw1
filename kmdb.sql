@@ -67,18 +67,42 @@
 --   URL for the finished "hw1" repository as the "Website URL" for the 
 --   Homework 1 assignment in Canvas
 
-
 DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS actors;
 DROP TABLE IF EXISTS studios;
 
 CREATE TABLE movies (
-  movie_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
   title TEXT,
   release_year INTEGER,
   MPAA_rating TEXT,
-  studio_id TEXT
+  studio_id INTEGER
 );
+
+INSERT INTO movies (
+   "title",
+   "release_year",
+  "MPAA_rating",
+   "studio_id"
+) VALUES (
+   "Batman Begins",
+   2005,
+   "PG-13",
+   1
+), (
+    "The Dark Knight",
+    2008,
+    "PG-13",
+    1
+), (
+    "The Dark Knight Rises",
+    2012,
+    "PG-13",
+    1
+);
+
+-- SELECT * from movies;
+
 -- Successful sample output is as shown:
 
 -- Movies
@@ -89,33 +113,92 @@ CREATE TABLE movies (
 -- The Dark Knight Rises  2012           PG-13  Warner Bros.
 
 CREATE TABLE actors (
-    actor_name TEXT PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    actor_name TEXT,
     character_name TEXT,
     movie_id INTEGER
 );
 
-CREATE TABLE studios(
-    studio_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    studio_name TEXT
+
+CREATE TABLE studios (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT
+);
+
+INSERT INTO studios (
+   "name"
+) VALUES (
+   "Warner Bros."
 );
 
 INSERT INTO actors (
-    "title",
-    "release_year",
-    "MPAA_rating",
-    "studio_id"
+    "actor_name",
+    "character_name",
+    "movie_id"
 ) VALUES (
-    "Batman Begins",
-    "2005",
-    "PG-13",
-    "1"
+    "Christian Bale",
+    "Bruce Wayne",
+    1
+), (
+    "Michael Caine",
+    "Alfred",
+    1
+), (
+    "Liam Neeson",
+    "Ra's Al Ghul",
+    1
+), (
+    "Katie Holmes",
+    "Rachel Dawes",
+    1
+), (
+    "Gary Oldman",
+    "Commissioner Gordon",
+    1
+), (
+    "Christian Bale",
+    "Bruce Wayne",
+    2
+), (
+    "Heath Ledger",
+    "Joker",
+    2
+), (
+    "Aaron Eckhart",
+    "Harvey Dent",
+    2
+), (
+    "Michael Caine",
+    "Alfred",
+    2
+), (
+    "Maggie Gyllenhaal",
+    "Rachel Dawes",
+    2
+), (
+    "Christian Bale",
+    "Bruce Wayne",
+    3
+), (
+    "Gary Oldman",
+    "Commissioner Gordon",
+    3
+), (
+    "Tom Hardy",
+    "Bane",
+    3
+), (
+    "Joseph Gordon-Levitt",
+    "John Blake",
+    3
+), (
+    "Anne Hathaway",
+    "Selina Kyle",
+    3
 );
 
-INSERT INTO studios(
-    "studio_name"
-) VALUES (
-    "Warner Bros."
-);
+SELECT * FROM actors;
+
 -- Top Cast
 -- ========
 
