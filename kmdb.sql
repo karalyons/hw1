@@ -67,6 +67,18 @@
 --   URL for the finished "hw1" repository as the "Website URL" for the 
 --   Homework 1 assignment in Canvas
 
+
+DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS actors;
+DROP TABLE IF EXISTS studios;
+
+CREATE TABLE movies (
+  movie_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title TEXT,
+  release_year INTEGER,
+  MPAA_rating TEXT,
+  studio_id TEXT
+);
 -- Successful sample output is as shown:
 
 -- Movies
@@ -76,6 +88,34 @@
 -- The Dark Knight        2008           PG-13  Warner Bros.
 -- The Dark Knight Rises  2012           PG-13  Warner Bros.
 
+CREATE TABLE actors (
+    actor_name TEXT PRIMARY KEY,
+    character_name TEXT,
+    movie_id INTEGER
+);
+
+CREATE TABLE studios(
+    studio_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    studio_name TEXT
+);
+
+INSERT INTO actors (
+    "title",
+    "release_year",
+    "MPAA_rating",
+    "studio_id"
+) VALUES (
+    "Batman Begins",
+    "2005",
+    "PG-13",
+    "1"
+);
+
+INSERT INTO studios(
+    "studio_name"
+) VALUES (
+    "Warner Bros."
+);
 -- Top Cast
 -- ========
 
